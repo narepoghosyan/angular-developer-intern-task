@@ -92,40 +92,6 @@ export class WallComponent {
     return color;
   }
 
-  getBackwardDiagonals(i: number, j: number, wallMatrix: number[][]) {
-    const result = [];
-
-    while (i > 0 && j > 0) {
-      i--;
-      j--;
-    }
-
-    while (i < this.wallHeight && j < this.wallWidth) {
-      result.push(wallMatrix[i][j]);
-      i++;
-      j++;
-    }
-
-    return result;
-  }
-
-  getForwardDiagonals(i: number, j: number, wallMatrix: number[][]) {
-    const result = [];
-
-    while (i > 0 && j + 1 < this.wallWidth) {
-      i--;
-      j++;
-    }
-
-    while (i < this.wallHeight && j >= 0) {
-      result.push(wallMatrix[i][j]);
-      i++;
-      j--;
-    }
-
-    return result;
-  }
-
   getNorthWestDiagonal(cellX: number, cellY: number, matrix: number[][]){
     const result = [matrix[cellY][cellX]];
     let i = cellX;
