@@ -1,0 +1,24 @@
+<div class="options">
+  <div class="form-control">
+    <label for="wallWidth">Wall width:</label>
+    <input [(ngModel)]="wallWidth" id="wallWidth" type="number" min="1" (ngModelChange)="bricks = []"/>
+  </div>
+  <div class="form-control">
+    <label for="wallHeight">Wall height:</label>
+    <input [(ngModel)]="wallHeight" id="wallHeight" type="number" min="1" (ngModelChange)="bricks = []"/>
+  </div>
+  <div class="form-control">
+    <label for="colorsCount">Color's count:</label>
+    <input [(ngModel)]="colorsCount" id="colorsCount" type="number" min="1" (ngModelChange)="bricks = []"/>
+  </div>
+  <div class="form-control">
+    <label for="invertDiagonal">Invert diagonal:</label>
+    <input [(ngModel)]="invertDiagonal" id="invertDiagonal" type="checkbox" (ngModelChange)="bricks = []"/>
+  </div>
+  <button [disabled]="!wallWidth || !wallHeight || !colorsCount" (click)="createWall()">Create a wall</button>
+</div>
+<div class="bricks" [style.width]="wallWidth * 50 + 'px'">
+  <div *ngFor="let brick of bricks" class="brick" [style.background-color]="brick.colored ? brick.color : 'lightgray'"
+       (click)="brickClicked(brick.id)">
+  </div>
+</div>
